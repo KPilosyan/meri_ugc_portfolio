@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Navbar } from "@/components/Navbar";
 import { SparkleCursor } from "@/components/SparkleCursor";
 import { CharacterGuide } from "@/components/CharacterGuide";
+import { Analytics } from "@vercel/analytics/react";
 
 // Load Cormorant Garamond for elegant editorial headings
 const cormorant = Cormorant_Garamond({
@@ -42,6 +43,7 @@ export default function RootLayout({
         <SparkleCursor />
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
