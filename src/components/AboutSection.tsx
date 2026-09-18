@@ -64,7 +64,7 @@ export const AboutSection: React.FC = () => {
         >
           <div className="relative w-full h-full bg-ugc-sand shadow-lg overflow-hidden">
             <Image
-              src="/images/k.png"
+              src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/k.png"
               alt="Mary Zatikian Editorial Portrait"
               fill
               className="object-cover"
