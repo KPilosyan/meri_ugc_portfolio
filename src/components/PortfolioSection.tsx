@@ -114,11 +114,13 @@ const PortfolioCard: React.FC<{
   const handleMouseEnter = () => {
     setIsHovered(true);
     if (cardVideoRef.current && project.videoUrl) {
-      cardVideoRef.current.currentTime = 0;
+      // Ensure element is muted for web autoplay policy
       cardVideoRef.current.muted = true;
       const playPromise = cardVideoRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {});
+        playPromise.catch((err) => {
+          console.warn("Hover video play error:", err);
+        });
       }
     }
   };
@@ -127,7 +129,7 @@ const PortfolioCard: React.FC<{
     setIsHovered(false);
     if (cardVideoRef.current && project.videoUrl) {
       cardVideoRef.current.pause();
-      cardVideoRef.current.currentTime = 0;
+      // DO NOT reset currentTime = 0 here; letting it pause naturally avoids freeze frames
     }
   };
 
@@ -147,6 +149,7 @@ const PortfolioCard: React.FC<{
           src={project.thumbnail}
           alt={project.title}
           fill
+          priority={false}
           className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
             isHovered && project.videoUrl ? "opacity-0" : "opacity-100"
           }`}
@@ -162,6 +165,7 @@ const PortfolioCard: React.FC<{
             muted
             playsInline
             loop
+            preload="metadata"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
               isHovered ? "opacity-100" : "opacity-0"
             }`}
@@ -182,7 +186,7 @@ const PortfolioCard: React.FC<{
 
         {/* Hover Overlay Hint */}
         {project.videoUrl && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-ugc-dark/20 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-ugc-dark/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             <span className="bg-ugc-cream text-ugc-burgundy text-[10px] font-bold tracking-editorial px-4 py-2 uppercase shadow-lg">
               PLAY PREVIEW WITH SOUND 🔊
             </span>
