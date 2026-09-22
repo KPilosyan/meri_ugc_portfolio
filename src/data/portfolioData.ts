@@ -37,7 +37,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     category: ["Skincare"],
     brand: "Biodance",
     thumbnail: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/thumb_1.png",
-    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/1.MP4",
+    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/1.mp4",
     aspectRatio: "9:16",
     deliverables: [
       "1x Vertical UGC Video (9:16)",
@@ -52,7 +52,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     category: ["Fragrance"], 
     brand: "Dior",
     thumbnail: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/thumb_2.png",
-    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/2.MP4",
+    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/2.mp4",
     aspectRatio: "9:16",
     deliverables: [
       "1x Hero Reel (9:16)",
@@ -119,7 +119,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     category: ["Skincare"],
     brand: "Biodance",
     thumbnail: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/thumb_7.png",
-    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/7.MP4",
+    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/7.mp4",
     aspectRatio: "9:16",
     deliverables: ["1x Educational Product Video", "4x Product Detail Shots"],
     brief: "Introduce and explain the four Biodance mask types, clearly highlighting what makes each mask different and who each one is best suited for.",
