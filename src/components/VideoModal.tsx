@@ -24,6 +24,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false); // Start unmuted
+  const [isReady, setIsReady] = useState(false); // Track buffering completion
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,33 +34,14 @@ export const VideoModal: React.FC<VideoModalProps> = ({
     if (isOpen) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
-
-      // Autoplay with sound when modal opens
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.muted = false;
-        setIsMuted(false);
-
-        const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => setIsPlaying(true))
-            .catch((err) => {
-              console.warn("Autoplay with audio restricted:", err);
-              // Fallback to muted autoplay if browser blocks unmuted audio
-              if (videoRef.current) {
-                videoRef.current.muted = true;
-                setIsMuted(true);
-                videoRef.current.play().then(() => setIsPlaying(true));
-              }
-            });
-        }
-      }
+      setIsReady(false); // Reset ready state on new open
     } else {
       document.body.style.overflow = "unset";
       if (videoRef.current) {
         videoRef.current.pause();
       }
+      setIsPlaying(false);
+      setIsReady(false);
     }
 
     return () => {
@@ -68,10 +50,36 @@ export const VideoModal: React.FC<VideoModalProps> = ({
     };
   }, [isOpen, onClose]);
 
+  // Fired when enough video bytes have buffered to play without stuttering
+  const handleCanPlayThrough = () => {
+    setIsReady(true);
+
+    if (videoRef.current && isOpen) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.muted = false;
+      setIsMuted(false);
+
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.warn("Autoplay with audio restricted:", err);
+            // Fallback to muted autoplay if browser blocks unmuted audio
+            if (videoRef.current) {
+              videoRef.current.muted = true;
+              setIsMuted(true);
+              videoRef.current.play().then(() => setIsPlaying(true));
+            }
+          });
+      }
+    }
+  };
+
   if (!isOpen) return null;
 
   const togglePlay = () => {
-    if (videoRef.current) {
+    if (videoRef.current && isReady) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
@@ -117,34 +125,58 @@ export const VideoModal: React.FC<VideoModalProps> = ({
 
         {/* Constrained 9:16 Video Container */}
         <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-0">
+          {/* Buffering Overlay (Poster + Loading Indicator) */}
+          {!isReady && (
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black">
+              {posterUrl && (
+                <img
+                  src={posterUrl}
+                  alt={title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-60"
+                />
+              )}
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                <div className="h-9 w-9 animate-spin rounded-full border-2 border-ugc-cream border-t-transparent" />
+                <span className="text-[10px] font-bold tracking-editorial uppercase text-ugc-cream/90 bg-black/40 px-3 py-1 rounded">
+                  Loading Video...
+                </span>
+              </div>
+            </div>
+          )}
+
           <video
             ref={videoRef}
             src={videoUrl}
             poster={posterUrl}
-            autoPlay
+            preload="auto"
             playsInline
             muted={isMuted}
-            className="w-full h-full object-contain cursor-pointer"
+            onCanPlayThrough={handleCanPlayThrough}
+            className={`w-full h-full object-contain cursor-pointer transition-opacity duration-300 ${
+              isReady ? "opacity-100" : "opacity-0"
+            }`}
             onClick={togglePlay}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           />
 
           {/* Controls Overlay */}
-          <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20 pointer-events-none">
-            <button
-              onClick={togglePlay}
-              className="pointer-events-auto bg-ugc-cream/90 hover:bg-ugc-cream text-ugc-burgundy px-4 py-2 text-[10px] font-bold tracking-editorial uppercase shadow-md transition-all"
-            >
-              {isPlaying ? "Pause" : "Play"}
-            </button>
-            <button
-              onClick={toggleMute}
-              className="pointer-events-auto bg-ugc-cream/90 hover:bg-ugc-cream text-ugc-burgundy px-4 py-2 text-[10px] font-bold tracking-editorial uppercase shadow-md transition-all"
-            >
-              {isMuted ? "Sound On" : "Mute"}
-            </button>
-          </div>
+          {isReady && (
+            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center z-20 pointer-events-none">
+              <button
+                onClick={togglePlay}
+                className="pointer-events-auto bg-ugc-cream/90 hover:bg-ugc-cream text-ugc-burgundy px-4 py-2 text-[10px] font-bold tracking-editorial uppercase shadow-md transition-all"
+              >
+                {isPlaying ? "Pause" : "Play"}
+              </button>
+              <button
+                onClick={toggleMute}
+                className="pointer-events-auto bg-ugc-cream/90 hover:bg-ugc-cream text-ugc-burgundy px-4 py-2 text-[10px] font-bold tracking-editorial uppercase shadow-md transition-all"
+              >
+                {isMuted ? "Sound On" : "Mute"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
