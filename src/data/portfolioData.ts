@@ -36,8 +36,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     title: "Overnight Glow with Biodance Mask",
     category: ["Skincare"],
     brand: "Biodance",
-    thumbnail: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/thumb_1.png",
-    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/1.mp4",
+    thumbnail: "/images/thumb_1.png",
+    videoUrl: "/videos/1.mp4",
     aspectRatio: "9:16",
     deliverables: [
       "1x Vertical UGC Video (9:16)",
@@ -51,8 +51,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     title: "Dior Addict Peachy Glow",
     category: ["Fragrance"], 
     brand: "Dior",
-    thumbnail: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/thumb_2.png",
-    videoUrl: "https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/2.mp4",
+    thumbnail: "/images/thumb_2.png",
+    videoUrl: "/videos/2.mp4",
     aspectRatio: "9:16",
     deliverables: [
       "1x Hero Reel (9:16)",
