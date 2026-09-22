@@ -122,10 +122,11 @@ export const VideoModal: React.FC<VideoModalProps> = ({
             src={videoUrl}
             poster={posterUrl}
             autoPlay
+            controls
             playsInline
             muted={isMuted}
-            className="w-full h-full object-contain cursor-pointer"
-            onClick={togglePlay}
+            preload="auto"
+            className="w-full h-full object-contain"
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           />
