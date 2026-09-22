@@ -162,6 +162,7 @@ const PortfolioCard: React.FC<{
             muted
             playsInline
             loop
+            preload="metadata"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
               isHovered ? "opacity-100" : "opacity-0"
             }`}
