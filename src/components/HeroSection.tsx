@@ -100,7 +100,7 @@ export const HeroSection = () => {
               {/* Card 3 - True Center (Grounded Anchor) */}
               <div className="absolute left-[35%] bottom-2 z-30 w-36 sm:w-48 p-2.5 bg-white rounded-xs shadow-[0_20px_40px_rgba(0,0,0,0.15)] -rotate-1 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-[4/5] overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="/https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/5.webp" alt="UGC Content 5" className="w-full h-full object-cover" />
+                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/5.webp" alt="UGC Content 5" className="w-full h-full object-cover" />
                 </div>
               </div>
 
