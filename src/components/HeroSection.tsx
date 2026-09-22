@@ -86,35 +86,35 @@ export const HeroSection = () => {
               {/* Card 1 - Far Left (Low Anchor) */}
               <div className="absolute left-[0%] bottom-6 z-10 w-32 sm:w-44 p-2 bg-white rounded-xs shadow-[0_10px_30px_rgba(0,0,0,0.08)] -rotate-3 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-[4/5] overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/1.png" alt="UGC Content 1" className="w-full h-full object-cover" />
+                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/1.webp" alt="UGC Content 1" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               {/* Card 2 - Left Center (Elevated Hero) */}
               <div className="absolute left-[16%] top-2 z-20 w-36 sm:w-48 p-2 bg-white rounded-xs shadow-[0_15px_35px_rgba(0,0,0,0.12)] rotate-9 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/3.png" alt="UGC Content 2" className="w-full h-full object-cover" />
+                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/3.webp" alt="UGC Content 2" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               {/* Card 3 - True Center (Grounded Anchor) */}
               <div className="absolute left-[35%] bottom-2 z-30 w-36 sm:w-48 p-2.5 bg-white rounded-xs shadow-[0_20px_40px_rgba(0,0,0,0.15)] -rotate-1 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-[4/5] overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="/https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/5.png" alt="UGC Content 5" className="w-full h-full object-cover" />
+                  <img src="/https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/5.webp" alt="UGC Content 5" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               {/* Card 4 - Right Center (High Accent) */}
               <div className="absolute right-[19%] top-4 z-10 w-32 sm:w-44 p-2 bg-white rounded-xs shadow-[0_10px_30px_rgba(0,0,0,0.08)] rotate-1 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-square overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/6.png" alt="UGC Content 3" className="w-full h-full object-cover" />
+                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/6.webp" alt="UGC Content 3" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               {/* Card 5 - Far Right (Hero Offset) */}
               <div className="absolute right-[2%] top-[32%] z-20 w-36 sm:w-48 p-2 bg-white rounded-xs shadow-[0_15px_35px_rgba(0,0,0,0.12)] -rotate-6 hover:rotate-0 hover:scale-105 hover:z-40 transition-all duration-500 ease-out cursor-pointer">
                 <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ugc-sand/20">
-                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/4.png" alt="UGC Content 4" className="w-full h-full object-cover" />
+                  <img src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/4.webp" alt="UGC Content 4" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -125,7 +125,7 @@ export const HeroSection = () => {
           <div className="order-2 lg:order-none lg:col-span-6 relative h-[500px] sm:h-[650px] w-full my-6 lg:my-0">
             <div className="relative w-full h-full bg-ugc-sand overflow-hidden border-4 border-white shadow-2xl">
               <Image
-                src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/profile.png"
+                src="https://rrxt4mgceuhmmfet.public.blob.vercel-storage.com/profile.webp"
                 alt="Editorial UGC Photography"
                 fill
                 priority
