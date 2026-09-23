@@ -72,22 +72,22 @@ export const ContactSection: React.FC = () => {
               <p className="text-xs font-sans tracking-widest text-ugc-dark uppercase">
                 INSTAGRAM:{" "}
                 <a
-                  href="https://www.instagram.com/zatikyan_mery/"
+                  href="https://www.instagram.com/mary_zatikian/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-ugc-burgundy underline decoration-ugc-burgundy/30 underline-offset-4 transition-colors"
                 >
-                  @zatikyan_mery
+                  @mary_zatikian
                 </a>
                 {" • "}
                 TIKTOK:{" "}
                 <a
-                  href="https://www.tiktok.com/@merzatik"
+                  href="https://www.tiktok.com/@mary_zatikian"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-ugc-burgundy underline decoration-ugc-burgundy/30 underline-offset-4 transition-colors"
                 >
-                  @merzatik
+                  @mary_zatikian
                 </a>
               </p>
             </div>
